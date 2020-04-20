@@ -23,11 +23,7 @@ steps:
     - ./run_all.sh; ls
     - ./merge.sh ; ls
   
-  when:
-  branch:
-    include:
-      - master
-    exclude:
-      - github-pages
+  trigger:
   event:
-  - cron: [daily]
+    - exclude: [ promote ]
+    - cron: [daily]
