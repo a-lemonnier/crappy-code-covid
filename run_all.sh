@@ -35,7 +35,8 @@ LIST="France
       Colombia
       Niger
       Cameroon"
-
+      
+rm -dfr png
 mkdir png
     
 for COUNTRY in $LIST; do
