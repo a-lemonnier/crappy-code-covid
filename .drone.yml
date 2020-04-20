@@ -1,0 +1,27 @@
+kind: pipeline
+name: build-and-test-amd64
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+- name: Build and run and push
+  image: ubuntu:18.04
+  environnement:
+    - PASSD:
+        from_secret: pass
+    - TEST0:
+        from_secret: test
+  commands:
+    - apt-get update -y
+    - export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
+    - apt-get install -y tzdata 
+    - apt-get install -y python3 python3-matplotlib python3-numpy python3-pandas python3-scipy python3-xlrd python3-tk python3-requests ghostscript imagemagick poppler-utils libnotify-bin time git
+    - chmod +x CI_mpl_agg.sh ;chmod +x run_all.sh; chmod +x merge.sh;
+    - ./CI_mpl_agg.sh
+    - ./run_all.sh; ls
+    - ./merge.sh ; ls
+ 
+trigger:
+  cron: [ hourly]
