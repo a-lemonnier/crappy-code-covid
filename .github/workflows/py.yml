@@ -20,7 +20,7 @@ jobs:
     - name: install py
       run: sudo apt install -y python3-matplotlib python3-numpy python3-pandas python3-scipy python3-xlrd python3-tk python3-requests poppler-utils ghostscript imagemagick libnotify-bin time git
     - name: run all
-      run: chmod +x CI_mpl_agg.sh; chmod +x run_all.sh; chmod +x merge.sh; sudo ./CI_mpl_agg.sh && ./run_all.sh && ls && ./merge.sh
+      run: chmod +x CI_mpl_agg.sh; chmod +x run_all.sh; chmod +x make_md.sh; chmod +x merge.sh; sudo ./CI_mpl_agg.sh && ./run_all.sh && ./make_md.sh && ls && ./merge.sh
     - name: git conf
       run: git config --global user.name "a-lemonnier"; git remote set-url origin https://a-lemonnier:${{ secrets.pass }}@github.com/a-lemonnier/crappy-code-covid.git
     - name: push
