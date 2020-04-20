@@ -27,3 +27,4 @@ steps:
   event:
     - push
     - exclude: [ promote , gh-pages, github-pages]
+    - cron: [daily]
