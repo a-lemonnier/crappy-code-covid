@@ -22,6 +22,9 @@ steps:
     - ./CI_mpl_agg.sh
     - ./run_all.sh; ls
     - ./merge.sh ; ls
- 
-#trigger:
-  #cron: [ hourly]
+  
+  when:
+  branch:
+  - master
+  event:
+  - cron: [daily]
