@@ -26,6 +26,7 @@ A bad py code fitting the covid data from ECDC. ECDC updates his database at 12h
 ![png/covid_Norway_2020-04-20.png](png/covid_Norway_2020-04-20.png)
 ![png/covid_Peru_2020-04-20.png](png/covid_Peru_2020-04-20.png)
 ![png/covid_Portugal_2020-04-20.png](png/covid_Portugal_2020-04-20.png)
+![png/covid_Russia_2020-04-20.png](png/covid_Russia_2020-04-20.png)
 ![png/covid_Slovenia_2020-04-20.png](png/covid_Slovenia_2020-04-20.png)
 ![png/covid_South_Africa_2020-04-20.png](png/covid_South_Africa_2020-04-20.png)
 ![png/covid_South_Korea_2020-04-20.png](png/covid_South_Korea_2020-04-20.png)
