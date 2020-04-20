@@ -25,5 +25,5 @@ steps:
   
   trigger:
   event:
-    - exclude: [ promote ]
-    - cron: [daily]
+    - push
+    - exclude: [ promote , gh-pages, github-pages]
