@@ -26,4 +26,4 @@ steps:
   trigger:
   event:
     - exclude: [ promote ]
-    - cron: [daily]
+
