@@ -23,5 +23,5 @@ steps:
     - ./run_all.sh; ls
     - ./merge.sh ; ls
  
-trigger:
-  cron: [ hourly]
+#trigger:
+  #cron: [ hourly]
