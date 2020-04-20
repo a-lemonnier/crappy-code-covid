@@ -42,4 +42,5 @@ for COUNTRY in $LIST; do
      (notify-send 'computing '$COUNTRY; echo "Compute "$COUNTRY; ./covid.py $COUNTRY) &
 done
 
+wait
 
