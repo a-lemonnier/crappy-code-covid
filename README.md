@@ -39,8 +39,7 @@ Dependencies:
 - scipy
 - numpy
 - matplotlib
-- pandas
+- pandas or xlrd
 - tk
-- xlrd
 - requests
 - notify-send
