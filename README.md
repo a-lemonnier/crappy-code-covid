@@ -15,10 +15,11 @@ A bad py code fitting the covid data from ECDC. ECDC updates his database at 12h
 ![png/covid_France_2020-04-20.png](png/covid_France_2020-04-20.png)
 ![png/covid_Germany_2020-04-20.png](png/covid_Germany_2020-04-20.png)
 ![png/covid_India_2020-04-20.png](png/covid_India_2020-04-20.png)
+![png/covid_Iran_2020-04-20.png](png/covid_Iran_2020-04-20.png)
 ![png/covid_Ireland_2020-04-20.png](png/covid_Ireland_2020-04-20.png)
 ![png/covid_Israel_2020-04-20.png](png/covid_Israel_2020-04-20.png)
 ![png/covid_Italy_2020-04-20.png](png/covid_Italy_2020-04-20.png)
-![png/covid_Mexico_2020-04-20.png](png/covid_Mexico_2020-04-20.png)
+![png/covid_Japan_2020-04-20.png](png/covid_Japan_2020-04-20.png)
 ![png/covid_Netherlands_2020-04-20.png](png/covid_Netherlands_2020-04-20.png)
 ![png/covid_Niger_2020-04-20.png](png/covid_Niger_2020-04-20.png)
 ![png/covid_Norway_2020-04-20.png](png/covid_Norway_2020-04-20.png)
@@ -28,6 +29,7 @@ A bad py code fitting the covid data from ECDC. ECDC updates his database at 12h
 ![png/covid_Slovenia_2020-04-20.png](png/covid_Slovenia_2020-04-20.png)
 ![png/covid_South_Africa_2020-04-20.png](png/covid_South_Africa_2020-04-20.png)
 ![png/covid_South_Korea_2020-04-20.png](png/covid_South_Korea_2020-04-20.png)
+![png/covid_Spain_2020-04-20.png](png/covid_Spain_2020-04-20.png)
 ![png/covid_Sweden_2020-04-20.png](png/covid_Sweden_2020-04-20.png)
 ![png/covid_Switzerland_2020-04-20.png](png/covid_Switzerland_2020-04-20.png)
 ![png/covid_Turkey_2020-04-20.png](png/covid_Turkey_2020-04-20.png)
@@ -39,7 +41,8 @@ Dependencies:
 - scipy
 - numpy
 - matplotlib
-- pandas or xlrd
+- pandas
 - tk
+- xlrd
 - requests
 - notify-send
