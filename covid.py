@@ -502,7 +502,7 @@ if (not DONT_SHOW):
     print("Confirmed cases:")
     print("- center:", int(center), "days")
     print("- max:", int(maximum), "cases")
-    print("- FWHM:", int(FWHM), "days")
+    print("- FWHM:", int(FWHM+1), "days")
     
     print("Cumulative confirmed cases:")
     print("- A=", A, "cases")
@@ -601,7 +601,7 @@ if (p_found and p_found_c and not p_found_d):
         if (FWHM!=0):
             ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
             
-            ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM))+" days", 
+            ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM+1))+" days", 
                         xy=(center-abs(FWHM)/2, max_gauss/2), 
                         xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
                         arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
@@ -766,7 +766,7 @@ if (p_found and p_found_c and p_found_d):
         if (FWHM!=0):
             ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
             
-            ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM))+" days", 
+            ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM+1))+" days", 
                         xy=(center-abs(FWHM)/2, max_gauss/2), 
                         xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
                         arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
@@ -970,7 +970,7 @@ if (p_found and not p_found_c):
         if (FWHM!=0):
             ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
             
-            ax0.annotate("$\\frac{1}{2}\ FWHM=$"+str(int(FWHM))+" days", 
+            ax0.annotate("$\\frac{1}{2}\ FWHM=$"+str(int(FWHM+1))+" days", 
                         xy=(center-abs(FWHM)/2, max_gauss/2), 
                         xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
                         arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
