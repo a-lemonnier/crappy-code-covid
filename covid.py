@@ -35,7 +35,7 @@ def logistic(x, A, B, C):
 # -----------------------------------------------------------
 # METHOD=2: xlsx 
 # METHOD=3: csv
-METHOD=3
+METHOD=2
 
 MAXFIT=10
 WINDOW=3 # moving avg
@@ -45,7 +45,7 @@ DONT_SHOW=False
 # -----------------------------------------------------------
 
 if (len(sys.argv)>1):
-    print("Disable tk")
+    print("disable tk")
     COUNTRY=sys.argv[1]
     DONT_SHOW=True
 else:
@@ -138,7 +138,7 @@ if (METHOD==2):
             status=requests.get(url_ecdc).status_code
         except:
             acount+=1
-            print("Attempts: {0}".format(count))
+            print("Attempts: {0}".format(acount))
             
         count+=1
         
@@ -225,7 +225,7 @@ if (METHOD==3):
             status=requests.get(url_ecdc).status_code
         except:
             acount+=1
-            print("Attempts: {0}".format(count))
+            print("Attempts: {0}".format(acount))
             
     
     if (not DONT_SHOW):
@@ -332,10 +332,6 @@ if (not DONT_SHOW):
     print("- days:", len(x))
     print("fitting curves...")
 
-
-#y_max=np.max(y)
-#y_max_c=np.max(y_c)
-#y_max_d=np.max(y_d)
 
 y_max=1
 y_max_c=1
@@ -468,6 +464,8 @@ N_d_today=y_d[len(y_d)-1]
 # Gaussian --------------------------------------------------
 sigma=popt[2]
 FWHM=sigma*np.sqrt(2*np.log(2))
+if (FWHM<0):
+    FWHM=0
 center=popt[1]
 maximum=popt[0]
 
@@ -602,7 +600,7 @@ if (p_found and p_found_c and not p_found_d):
     
         ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
         
-        ax0.annotate("$\\frac{1}{2}\ FWHM=$"+str(int(FWHM/2))+" days", 
+        ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM))+" days", 
                     xy=(center-abs(FWHM)/2, max_gauss/2), 
                     xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
                     arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
@@ -766,7 +764,7 @@ if (p_found and p_found_c and p_found_d):
     
         ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
         
-        ax0.annotate("$\\frac{1}{2}\ FWHM=$"+str(int(FWHM/2))+" days", 
+        ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM))+" days", 
                     xy=(center-abs(FWHM)/2, max_gauss/2), 
                     xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
                     arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
@@ -969,7 +967,7 @@ if (p_found and not p_found_c):
     
         ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
         
-        ax0.annotate("$\\frac{1}{2}\ FWHM=$"+str(int(FWHM/2))+" days", 
+        ax0.annotate("$\\frac{1}{2}\ FWHM=$"+str(int(FWHM))+" days", 
                     xy=(center-abs(FWHM)/2, max_gauss/2), 
                     xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
                     arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
