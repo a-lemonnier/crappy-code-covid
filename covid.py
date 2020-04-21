@@ -597,15 +597,16 @@ if (p_found and p_found_c and not p_found_d):
                     arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=-0.15", color='r'), 
                     bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='white', lw=2),
                     zorder=8, size=TEXT_SIZE)
-    
-        ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
         
-        ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM))+" days", 
-                    xy=(center-abs(FWHM)/2, max_gauss/2), 
-                    xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
-                    arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
-                    bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='white', lw=2),
-                    zorder=8, size=TEXT_SIZE)
+        if (FWHM!=0):
+            ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
+            
+            ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM))+" days", 
+                        xy=(center-abs(FWHM)/2, max_gauss/2), 
+                        xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
+                        arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
+                        bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='white', lw=2),
+                        zorder=8, size=TEXT_SIZE)
 
     ax0.legend(loc='best')
 
@@ -762,14 +763,15 @@ if (p_found and p_found_c and p_found_d):
                     bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='white', lw=2),
                     zorder=8, size=TEXT_SIZE)
     
-        ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
-        
-        ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM))+" days", 
-                    xy=(center-abs(FWHM)/2, max_gauss/2), 
-                    xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
-                    arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
-                    bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='white', lw=2),
-                    zorder=8, size=TEXT_SIZE)
+        if (FWHM!=0):
+            ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
+            
+            ax0.annotate("$\\frac{FWHM}{2}=$"+str(int(FWHM))+" days", 
+                        xy=(center-abs(FWHM)/2, max_gauss/2), 
+                        xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
+                        arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
+                        bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='white', lw=2),
+                        zorder=8, size=TEXT_SIZE)
 
     ax0.legend(shadow=True,loc='best', prop={'size': TEXT_SIZE}).set_zorder(5)
 
@@ -965,14 +967,15 @@ if (p_found and not p_found_c):
                     bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='white', lw=2),
                     zorder=8, size=TEXT_SIZE)
     
-        ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
-        
-        ax0.annotate("$\\frac{1}{2}\ FWHM=$"+str(int(FWHM))+" days", 
-                    xy=(center-abs(FWHM)/2, max_gauss/2), 
-                    xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
-                    arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
-                    bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='white', lw=2),
-                    zorder=8, size=TEXT_SIZE)
+        if (FWHM!=0):
+            ax0.plot([center-FWHM,center], [max_FWHM, max_FWHM],  color='r', linestyle='-.', zorder=2)
+            
+            ax0.annotate("$\\frac{1}{2}\ FWHM=$"+str(int(FWHM))+" days", 
+                        xy=(center-abs(FWHM)/2, max_gauss/2), 
+                        xytext=(0.9*(Today+10), max_FWHM*0.5), color = "red",
+                        arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.35"), 
+                        bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='white', lw=2),
+                        zorder=8, size=TEXT_SIZE)
 
     ax0.legend(loc='best')
 
