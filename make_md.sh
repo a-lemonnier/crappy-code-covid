@@ -6,7 +6,11 @@ echo "# crappy-code-covid [![Build Status](https://cloud.drone.io/api/badges/a-l
 echo " " >> README.md
 echo "A bad py code fitting the covid data from ECDC. ECDC updates his database at 12h00 CEST atm." >> README.md
 echo " " >> README.md
-echo "Mise à jour quotidienne par action github." > README.md
+echo "Mise à jour quotidienne par action github." >> README.md
+
+echo " "  >> README.md
+
+echo  "Version pdf: [covid.pdf](covid.pdf)" >> README.md
 
 echo " " >> README.md
 
