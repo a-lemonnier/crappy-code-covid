@@ -10,7 +10,7 @@ echo "Mise à jour quotidienne automatique par action github." >> README.md
 
 echo " "  >> README.md
 
-echo  "Version pdf: [covid.pdf](covid.pdf)" >> README.md
+echo  "Version pdf: [covid.pdf](https://github.com/a-lemonnier/crappy-code-covid/raw/master/covid.pdf)" >> README.md
 
 echo " " >> README.md
 
