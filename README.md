@@ -2,9 +2,9 @@
  
 A bad py code fitting the covid data from ECDC. ECDC updates his database at 12h00 CEST atm.
  
-Mise à jour quotidienne par action github.
+Mise à jour quotidienne automatique par action github.
  
-Version pdf: [covid.pdf](covid.pdf)
+Version pdf: [covid.pdf](https://github.com/a-lemonnier/crappy-code-covid/raw/master/covid.pdf)
  
 ![png/covid_Australia_2020-04-22.png](png/covid_Australia_2020-04-22.png)
 ![png/covid_Austria_2020-04-22.png](png/covid_Austria_2020-04-22.png)
