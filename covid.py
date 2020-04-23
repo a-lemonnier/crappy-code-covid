@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec  as gs
 from matplotlib import use
 
+from os import path
+
 from scipy.optimize import curve_fit
 
 import requests
@@ -37,10 +39,16 @@ def logistic(x, A, B, C):
 # METHOD=3: csv
 METHOD=3
 
+DEMOGRAPHY=True
+
 MAXFIT=10
 WINDOW=3 # moving avg
 COUNTRY="France"
 DONT_SHOW=False
+
+DEMO_DATA="data/API_SP.POP.TOTL_DS2_en_csv_v2_988606.csv"
+DEMO_YEAR="2018"
+
 
 # -----------------------------------------------------------
 
@@ -91,10 +99,40 @@ print("backend:",backend)
 use(backend)
 
 
-data=[]
-data_str=[]
+# Demography ------------------------------------------------
+
+demography=0
+
+if (DEMOGRAPHY and path.exists(DEMO_DATA)):
+    import pandas as pd
+    
+    if (not DONT_SHOW):
+        print("extracting demographic data...")  
+    raw_data = pd.read_csv(DEMO_DATA,skiprows=4, usecols=["Country Name", DEMO_YEAR], sep=',')
+    raw_data.describe()
+    
+    demo_index=0    
+    tCOUNTRY=COUNTRY
+    
+    if (COUNTRY=="United_States_of_America"): tCOUNTRY="United States"
+    if (COUNTRY=="United_Kingdom"): tCOUNTRY="United Kingdom"
+    if (COUNTRY=="Iran"): tCOUNTRY="Iran, Islamic Rep."
+    if (COUNTRY=="Russia"): tCOUNTRY="Russian Federation"
+    if (COUNTRY=="Venezuela"): tCOUNTRY="Venezuela, RB"
+    if (COUNTRY=="South_Africa"): tCOUNTRY="South_Africa"
+    if (COUNTRY=="South_Korea"): tCOUNTRY="Korea, Rep."
+        
+    for i,val in enumerate(raw_data.iloc[:,0]):
+        if (val==tCOUNTRY):
+            demo_index=i
+            break
+        
+    demography=raw_data[DEMO_YEAR][demo_index]
 
 # -----------------------------------------------------------
+
+data=[]
+data_str=[]
 
 if (METHOD==1):
     # https://data.world/covid-19-data-resource-hub/covid-19-case-counts/workspace/file?filename=COVID-19+Cases.csv
@@ -263,7 +301,8 @@ if (METHOD==3):
         count+=1
     
     if (index_l==index_u):
-            simpledialog.messagebox.showerror("Error","Country not found: "+ COUNTRY)
+            if (not DONT_SHOW):
+                simpledialog.messagebox.showerror("Error","Country not found: "+ COUNTRY)
             print("country not found:", COUNTRY)
             exit(0);
     
@@ -294,6 +333,7 @@ if (METHOD==3):
         cases_by_days.append(sum(col_cases[0:i+1]))
         deaths_by_days.append(sum(col_deaths[0:i+1]))
         
+    data=data
     data_c=cases_by_days
     data_d=deaths_by_days
 
@@ -553,7 +593,7 @@ if (p_found and p_found_c and not p_found_d):
     
     ax0.get_xaxis().get_major_formatter().set_useOffset(False)
     
-    ax0.set_title(COUNTRY+" - Confirmed cases $N(t)$", size=TITLE_SIZE, fontweight='bold')
+    ax0.set_title(COUNTRY+" - Confirmed cases $N(t)$ - Population: {:,}".format(int(demography)).replace(',', ' ')+" people", size=TITLE_SIZE, fontweight='bold')
     ax0.set_xlabel("$t$ (days)",size=TEXT_SIZE)
     ax0.set_ylabel("$N$ (cases)",size=TEXT_SIZE)
     
@@ -678,6 +718,7 @@ if (p_found and p_found_c and not p_found_d):
     ax1.text(0.03,0.1,        
     # "Date: "+str(day)+
     "\nMaximum: $\mathbf{"+str(int(A))+"}$ cases"+
+    "\nMax. per capita: $\mathbf{"+"{0:.2e}".format(A/demography)+"}$"+
     "\nDaily increase: {0} cases".format(int(N_c_today-y_c[len(y)-2])) +
     "\n$A={0:.2e}$".format(A)+
     "\n$B={0:.2e}$".format(B)+
@@ -718,7 +759,7 @@ if (p_found and p_found_c and p_found_d):
    
     ax0.get_xaxis().get_major_formatter().set_useOffset(False)
     
-    ax0.set_title(COUNTRY+" - Confirmed cases $N(t)$", size=TITLE_SIZE, fontweight='bold')
+    ax0.set_title(COUNTRY+" - Confirmed cases $N(t)$ - Population: {:,}".format(int(demography)).replace(',', ' ')+" people", size=TITLE_SIZE, fontweight='bold')
     ax0.set_xlabel("$t$ (days)",size=TEXT_SIZE)
     ax0.set_ylabel("$N$ (cases)",size=TEXT_SIZE)
     
@@ -842,6 +883,7 @@ if (p_found and p_found_c and p_found_d):
     ax1.text(0.03,0.1,        
     # "Date: "+str(day)+
     "\nMaximum: $\mathbf{"+str(int(A))+"}$ cases"+
+    "\nMax. per capita: $\mathbf{"+"{0:.2e}".format(A/demography)+"}$"+
     "\nDaily increase: {0} cases".format(int(N_c_today-y_c[len(y)-2])) +
     "\n$A={0:.2e}$".format(A)+
     "\n$B={0:.2e}$".format(B)+
@@ -896,8 +938,8 @@ if (p_found and p_found_c and p_found_d):
     ax2.text(0.03,.1,
                 # "Date: "+str(day)+
                 "\nMaximum: $\mathbf{"+str(int(A_d))+"}$ Total deaths"+
-                #"\nGaussian peak: {0} Total deaths".format((int(logistic(center ,*popt_d))))+
-                "\nDaily increase: {0} Total deaths".format(int(N_d_today-y_d[len(y_d)-2])) +
+                "\nMax. per capita: $\mathbf{"+"{0:.2e}".format(A_d/demography)+"}$"+
+                "\nDaily increase: {0}".format(int(N_d_today-y_d[len(y_d)-2])) +
                 "\n$A_d={0:.2e}$".format(A_d)+
                 "\n$B_d={0:.2e}$".format(B_d)+
                 "\n$C_d={0:.2e}$".format(C_d)+
@@ -922,7 +964,7 @@ if (p_found and not p_found_c):
 
     ax0=fig.add_subplot(grid[0,0])
     
-    ax0.set_title(COUNTRY+" - Confirmed cases $N(t)$", size=TITLE_SIZE, fontweight='bold')
+    ax0.set_title(COUNTRY+" - Confirmed cases $N(t)$ - Population: {:,}".format(int(demography)).replace(',', ' ')+" people", size=TITLE_SIZE, fontweight='bold')
     ax0.set_xlabel("$t$ (days)",size=TEXT_SIZE)
     ax0.set_ylabel("$N$ (cases)",size=TEXT_SIZE)
     
@@ -1058,6 +1100,7 @@ if (not p_found and p_found_c):
     # "Date: "+str(day)+
     "\nMaximum: $\mathbf{"+str(int(A))+"}$ cases"+
     "\nDaily increase: {0} cases".format(int(N_c_today-y_c[len(y)-2])) +
+    "\nMax. per capita: $\mathbf{"+"{0:.2e}".format(A/demography)+"}$"+
     "\n$A={0:.2e}$".format(A)+
     "\n$B={0:.2e}$".format(B)+
     "\n$C={0:.2e}$".format(C)+
