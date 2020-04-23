@@ -35,7 +35,7 @@ def logistic(x, A, B, C):
 # -----------------------------------------------------------
 # METHOD=2: xlsx 
 # METHOD=3: csv
-METHOD=2
+METHOD=3
 
 MAXFIT=10
 WINDOW=3 # moving avg
