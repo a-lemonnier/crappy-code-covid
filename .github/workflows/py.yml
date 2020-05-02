@@ -31,6 +31,3 @@ jobs:
       run: git config --global user.name "a-lemonnier"; git remote set-url origin https://a-lemonnier:${{ secrets.pass }}@github.com/a-lemonnier/crappy-code-covid.git
     - name: push
       run: git add --all; git commit -m "CI Update"; git push 
-
-
-
