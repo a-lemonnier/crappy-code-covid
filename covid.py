@@ -42,7 +42,7 @@ METHOD=3
 DEMOGRAPHY=True
 
 MAXFIT=10
-WINDOW=3 # moving avg
+WINDOW=5 # moving avg
 COUNTRY="France"
 DONT_SHOW=False
 
