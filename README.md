@@ -16,6 +16,7 @@ Version pdf: [covid.pdf](https://github.com/a-lemonnier/crappy-code-covid/raw/ma
 ![png/covid_Brazil_2020-05-22.png](png/covid_Brazil_2020-05-22.png)
 ![png/covid_Cameroon_2020-05-22.png](png/covid_Cameroon_2020-05-22.png)
 ![png/covid_Canada_2020-05-22.png](png/covid_Canada_2020-05-22.png)
+![png/covid_Chile_2020-05-22.png](png/covid_Chile_2020-05-22.png)
 ![png/covid_China_2020-05-22.png](png/covid_China_2020-05-22.png)
 ![png/covid_Colombia_2020-05-22.png](png/covid_Colombia_2020-05-22.png)
 ![png/covid_Ecuador_2020-05-22.png](png/covid_Ecuador_2020-05-22.png)
