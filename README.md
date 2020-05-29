@@ -21,7 +21,6 @@ Version pdf: [covid.pdf](https://github.com/a-lemonnier/crappy-code-covid/raw/ma
 ![png/covid_Colombia_2020-05-29.png](png/covid_Colombia_2020-05-29.png)
 ![png/covid_Ecuador_2020-05-29.png](png/covid_Ecuador_2020-05-29.png)
 ![png/covid_France_2020-05-29.png](png/covid_France_2020-05-29.png)
-![png/covid_Germany_2020-05-29.png](png/covid_Germany_2020-05-29.png)
 ![png/covid_India_2020-05-29.png](png/covid_India_2020-05-29.png)
 ![png/covid_Iran_2020-05-29.png](png/covid_Iran_2020-05-29.png)
 ![png/covid_Ireland_2020-05-29.png](png/covid_Ireland_2020-05-29.png)
