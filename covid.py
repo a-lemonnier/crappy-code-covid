@@ -37,7 +37,7 @@ def logistic(x, A, B, C):
 # -----------------------------------------------------------
 # METHOD=2: xlsx 
 # METHOD=3: csv
-METHOD=3
+METHOD=2
 
 DEMOGRAPHY=True
 
