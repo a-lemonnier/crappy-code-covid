@@ -38,7 +38,7 @@ Version pdf: [covid.pdf](https://github.com/a-lemonnier/crappy-code-covid/raw/ma
 ![png/covid_Slovenia_2020-11-17.png](png/covid_Slovenia_2020-11-17.png)
 ![png/covid_South_Africa_2020-11-17.png](png/covid_South_Africa_2020-11-17.png)
 ![png/covid_South_Korea_2020-11-17.png](png/covid_South_Korea_2020-11-17.png)
-![png/covid_Spain_2020-11-17.png](png/covid_Spain_2020-11-17.png)
+![png/covid_Spain_2020-11-16.png](png/covid_Spain_2020-11-16.png)
 ![png/covid_Sweden_2020-11-17.png](png/covid_Sweden_2020-11-17.png)
 ![png/covid_Switzerland_2020-11-17.png](png/covid_Switzerland_2020-11-17.png)
 ![png/covid_Turkey_2020-11-17.png](png/covid_Turkey_2020-11-17.png)
